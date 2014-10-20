@@ -50,5 +50,6 @@ class ArticleManager
       s += ", " if i != 0
       s += "(" + x.author + ", " + x.title + ")"
     end
+    s + "]"
   end
 end
