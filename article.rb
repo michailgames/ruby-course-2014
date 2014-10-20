@@ -5,11 +5,8 @@ class Article
   attr_reader :created_at
   
   def initialize(title, content, author="")
-    @title = title
-    @content = content
-    @author = author
-    @likes = 0
-    @dislikes = 0
+    @title, @content, @author = title, content, author
+    @likes = @dislikes = 0
     @created_at = Time.now
   end
   
