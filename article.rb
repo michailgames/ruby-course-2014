@@ -3,6 +3,8 @@ class Article
   attr_reader :content
   attr_reader :author
   attr_reader :created_at
+  attr_reader :likes
+  attr_reader :dislikes
   
   def initialize(title, content, author="")
     @title, @content, @author = title, content, author
