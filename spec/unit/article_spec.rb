@@ -29,10 +29,15 @@ class TestArticle < MiniTest::Test
   end
   
   def test_positive_votes
+    @article.like!
+    @article.dislike!
+    @article.dislike!
     assert_equal(@article.likes - @article.dislikes, @article.positive_votes)
   end
   
   def test_votes
+    @article.like!
+    @article.dislike!
     assert_equal(@article.likes + @article.dislikes, @article.votes)
   end
   
@@ -56,6 +61,5 @@ class TestArticle < MiniTest::Test
   
   def test_distinct_words
     assert_equal(["some", "content"], @article.distinct_words)
-  end
- 
+  end 
 end
