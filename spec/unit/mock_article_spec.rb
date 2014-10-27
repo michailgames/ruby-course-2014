@@ -1,7 +1,7 @@
 require_relative "../../mock_article"
 require "minitest/autorun"
  
-class TestMockArticle < MiniTest::Test
+class MockArticleSpec < MiniTest::Test
 
   def setup
     @article = MockArticle.new
