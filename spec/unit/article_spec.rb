@@ -1,7 +1,7 @@
 require_relative "../../article"
 require "minitest/autorun"
  
-class TestArticle < MiniTest::Test
+class ArticleSpec < MiniTest::Test
 
   def setup
     @article = Article.new("Some Title", "Some content content", "Some Author")
@@ -13,7 +13,6 @@ class TestArticle < MiniTest::Test
     assert_equal("Some Author", @article.author)
     assert_equal(0, @article.likes)
     assert_equal(0, @article.dislikes)
-    assert_equal(Time, @article.created_at.class)
   end
   
   def test_like
@@ -49,10 +48,10 @@ class TestArticle < MiniTest::Test
   end
   
   def test_include
-    text = "con"
-    assert_equal(@article.content.include?(text), @article.include?(text))
-    text = "blah blah blah"
-    assert_equal(@article.content.include?(text), @article.include?(text))
+    assert_equal(@article.content.include?("con"), @article.include?("con"))
+    text = "not included text"
+    assert_equal(@article.content.include?("not included text"),
+                 @article.include?("not included text"))
   end
   
   def test_words
