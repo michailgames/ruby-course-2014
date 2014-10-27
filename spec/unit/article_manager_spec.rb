@@ -2,7 +2,7 @@ require_relative "../../article"
 require_relative "../../article_manager"
 require "minitest/autorun"
  
-class TestArticleManager < MiniTest::Test
+class ArticleManagerSpec < MiniTest::Test
 
   def setup
     @article1 = Article.new("Title1", "content1", "Author1")
