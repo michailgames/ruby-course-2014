@@ -49,7 +49,6 @@ class ArticleSpec < MiniTest::Test
   
   def test_include
     assert_equal(@article.content.include?("con"), @article.include?("con"))
-    text = "not included text"
     assert_equal(@article.content.include?("not included text"),
                  @article.include?("not included text"))
   end
