@@ -2,7 +2,7 @@ class ArticleFilesystem
 
   ARTICLES_FOLDER = './articles/'
   
-  def write_to_file(article)
+  def self.write_to_file(article)
     filename = article.title.downcase.split.join("_")
     File.open(ARTICLES_FOLDER + filename, 'w') do |file|
       file.write("#{article.author}|#{article.title}|#{article.content}|" + \
