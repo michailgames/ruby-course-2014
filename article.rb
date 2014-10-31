@@ -6,9 +6,10 @@ class Article
   attr_reader :likes
   attr_reader :dislikes
   
-  def initialize(title, content, author="")
+  def initialize(title, content, author="", likes=0, dislikes=0)
     @title, @content, @author = title, content, author
-    @likes = @dislikes = 0
+    @likes = likes
+    @dislikes = dislikes
     @created_at = Time.now
   end
   

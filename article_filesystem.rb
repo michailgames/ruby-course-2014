@@ -1,3 +1,5 @@
+require_relative 'article'
+
 class ArticleFilesystem
 
   ARTICLES_FOLDER = './articles/'
@@ -7,6 +9,12 @@ class ArticleFilesystem
     File.open(ARTICLES_FOLDER + filename, 'w') do |file|
       file.write("#{article.author}|#{article.title}|#{article.content}|" + \
                 "#{article.likes}|#{article.dislikes}")
+    end
+  end
+  
+  def self.read_article(filepath)
+    File.open(filepath, 'r') do |file|
+      Article.new(*file.gets.split("|"))
     end
   end
 end
