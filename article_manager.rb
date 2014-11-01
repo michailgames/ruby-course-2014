@@ -1,3 +1,5 @@
+require_relative 'article_filesystem'
+
 class ArticleManager
 
   def initialize
@@ -6,6 +8,14 @@ class ArticleManager
   
   def add(article)
     @articles << article
+  end
+  
+  def load_articles(directory_path)
+    Dir.foreach(directory_path) do |filename|
+      next if filename == '.' or filename == '..'
+      @articles << ArticleFilesystem.read_article(File.join(directory_path,
+                                                            filename))
+    end
   end
   
   def worst_articles
