@@ -14,7 +14,7 @@ class ArticleFilesystem
   
   def self.read_article(filepath)
     File.open(filepath, 'r') do |file|
-      author, title, content, likes, dislikes = file.gets.split("|"))
+      author, title, content, likes, dislikes = file.gets.split("|")
       Article.new(author, title, content, likes.to_i, dislikes.to_i)
     end
   end
