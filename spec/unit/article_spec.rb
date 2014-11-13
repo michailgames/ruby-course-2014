@@ -59,5 +59,12 @@ class ArticleSpec < MiniTest::Test
   
   def test_distinct_words
     assert_equal(["some", "content"], @article.distinct_words)
-  end 
+  end
+  
+  def test_created_stamp
+    @article.instance_variable_set(:@created_at, Time.new(2014, 11, 13))
+    assert_equal(@article.created_stamp, "Thursday, November 13, 2014")
+    @article.instance_variable_set(:@created_at, Time.new(2012, 8, 18))
+    assert_equal(@article.created_stamp, "Saturday, August 18, 2012")
+  end
 end

@@ -1,3 +1,5 @@
+require 'stamp'
+
 class Article
   attr_reader :title
   attr_reader :content
@@ -47,5 +49,9 @@ class Article
   
   def distinct_words
     (words.map { |w| w.downcase }).uniq
+  end
+  
+  def created_stamp
+    @created_at.stamp_like("Sunday, May 1, 2000")
   end
 end

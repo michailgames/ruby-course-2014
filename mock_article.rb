@@ -11,6 +11,7 @@ class MockArticle < Article
     @content = generate_content
     @likes = random_number
     @dislikes = random_number
+    @created_at = Time.now
   end
                
   def random_number
