@@ -11,10 +11,9 @@ class ArticleManager
   end
   
   def load_articles(directory_path)
-    Dir.foreach(directory_path) do |filename|
-      next if filename == '.' or filename == '..'
-      @articles << ArticleFilesystem.read_article(File.join(directory_path,
-                                                            filename))
+    effective_path = File.expand_path(directory_path, File.dirname(__FILE__))
+    Dir[File.join(effective_path, '*')].each do |file|
+      @articles << ArticleFilesystem.read_article(file)
     end
   end
   
