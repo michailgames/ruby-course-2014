@@ -1,4 +1,5 @@
 require_relative 'article'
+require_relative 'article_filesystem'
 require 'nokogiri'
 require 'open-uri'
 require 'openssl'
@@ -21,5 +22,10 @@ class ArticleDownloader
     content = div.css("div.od-news-body").text
     author = div.css("div.od-news-footer").text.strip
     Article.new(title, content, author)
+  end
+
+  def self.save_articles
+    articles = download_articles
+    articles.each { |article| ArticleFilesystem.write_to_file(article) }
   end
 end
